@@ -55,14 +55,6 @@ class ReportScriptsController extends AbstractContentPanelController
                     .$form->field($item,'create_date_time')
                     .$form->field($item,'change_date_time')
                     .$form->field($item,'active')->checkbox(['value'=>'Y','uncheckValue'=>'N','checked'=>$item->active=='Y'?true:false])
-                ],
-                [
-                    "label"=>"seo",
-                    "content"=>$form->field($item->extensions['page'],'title')
-                    .$form->field($item->extensions['page'],'keywords')
-                    .$form->field($item->extensions['page'],'description')
-                    .$form->field($item->extensions['page'],'preview_text')
-                    .$form->field($item->extensions['page'],'detail_text')
                 ]
             ];
         };
@@ -93,14 +85,6 @@ class ReportScriptsController extends AbstractContentPanelController
                     .$form->field($item,'change_date_time')
                     .$form->field($item,'active')->checkbox(['value'=>'Y','uncheckValue'=>'N','checked'=>$item->active=='Y'?true:false])
                     
-                ],
-                [
-                    "label"=>"seo",
-                    "content"=>$form->field($item->extensions['page'],'title')
-                    .$form->field($item->extensions['page'],'keywords')
-                    .$form->field($item->extensions['page'],'description')
-                    .$form->field($item->extensions['page'],'preview_text')
-                    .$form->field($item->extensions['page'],'detail_text')
                 ]
             ];
         };
@@ -113,5 +97,5 @@ class ReportScriptsController extends AbstractContentPanelController
      */
     public function itemLabel()
     {
-        return "Сущность с секцией";
+        return "Сценарии \"Отчетности\"";
     }

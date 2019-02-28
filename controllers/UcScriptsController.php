@@ -1,6 +1,8 @@
 <?php
 namespace devskyfly\yiiModuleIitDocs\controllers;
 
+use devskyfly\yiiModuleIitDocs\models\ucScript\UcScript;
+
 class UcScriptsController extends AbstractContentPanelController
 {
     /**
@@ -21,7 +23,7 @@ class UcScriptsController extends AbstractContentPanelController
      */
     public static function entityCls()
     {
-        return Entity::class;
+        return UcScript::class;
     }
     
     /**
@@ -29,7 +31,7 @@ class UcScriptsController extends AbstractContentPanelController
      */
     public static function entityFilterCls()
     {
-        return null;
+        return UcScriptFilter::class;
     }
     
     /**
@@ -55,14 +57,6 @@ class UcScriptsController extends AbstractContentPanelController
                     .$form->field($item,'create_date_time')
                     .$form->field($item,'change_date_time')
                     .$form->field($item,'active')->checkbox(['value'=>'Y','uncheckValue'=>'N','checked'=>$item->active=='Y'?true:false])
-                ],
-                [
-                    "label"=>"seo",
-                    "content"=>$form->field($item->extensions['page'],'title')
-                    .$form->field($item->extensions['page'],'keywords')
-                    .$form->field($item->extensions['page'],'description')
-                    .$form->field($item->extensions['page'],'preview_text')
-                    .$form->field($item->extensions['page'],'detail_text')
                 ]
             ];
         };
@@ -93,14 +87,6 @@ class UcScriptsController extends AbstractContentPanelController
                     .$form->field($item,'change_date_time')
                     .$form->field($item,'active')->checkbox(['value'=>'Y','uncheckValue'=>'N','checked'=>$item->active=='Y'?true:false])
                     
-                ],
-                [
-                    "label"=>"seo",
-                    "content"=>$form->field($item->extensions['page'],'title')
-                    .$form->field($item->extensions['page'],'keywords')
-                    .$form->field($item->extensions['page'],'description')
-                    .$form->field($item->extensions['page'],'preview_text')
-                    .$form->field($item->extensions['page'],'detail_text')
                 ]
             ];
         };
@@ -113,5 +99,5 @@ class UcScriptsController extends AbstractContentPanelController
      */
     public function itemLabel()
     {
-        return "Сущность с секцией";
+        return "Сценарии \"УЦ\"";
     }
