@@ -2,7 +2,7 @@
 namespace devskyfly\yiiModuleIitDocs\controllers;
 
 use yii\web\Controller;
-use devskyfly\yiiModuleIitPartners\models\common\ModuleNavigation;
+use devskyfly\yiiModuleIitDocs\models\common\ModuleNavigation;
 
 class DefaultController extends Controller
 {

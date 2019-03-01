@@ -1,5 +1,5 @@
 <?php
-namespace devskyfly\yiiModuleIitDocs\models\reportScript;
+namespace devskyfly\yiiModuleIitDocs\models\ucScript;
 
 use devskyfly\yiiModuleAdminPanel\models\contentPanel\FilterInterface;
 use devskyfly\yiiModuleAdminPanel\models\contentPanel\FilterTrait;

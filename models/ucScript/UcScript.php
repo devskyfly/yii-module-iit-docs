@@ -5,7 +5,7 @@ use devskyfly\yiiModuleAdminPanel\models\contentPanel\AbstractEntity;
 
 class UcScript extends AbstractEntity
 {
-    public function tableName()
+    public static function tableName()
     {
         return "iit_docs_uc_script";
     }

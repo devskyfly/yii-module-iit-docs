@@ -1,6 +1,13 @@
 <?php
 namespace devskyfly\yiiModuleIitDocs\controllers;
 
+use devskyfly\php56\types\Obj;
+use devskyfly\yiiModuleAdminPanel\controllers\contentPanel\AbstractContentPanelController;
+use devskyfly\yiiModuleAdminPanel\widgets\contentPanel\ItemSelector;
+use devskyfly\yiiModuleIitDocs\models\reportScript\ReportScript;
+use devskyfly\yiiModuleIitDocs\models\reportScript\ReportScriptFilter;
+use devskyfly\yiiModuleIitDocs\models\reportScript\Section;
+
 class ReportScriptsController extends AbstractContentPanelController
 {
     /**
@@ -29,7 +36,7 @@ class ReportScriptsController extends AbstractContentPanelController
      */
     public static function entityFilterCls()
     {
-        return null;
+        return ReportScriptFilter::class;
     }
     
     /**
@@ -99,3 +106,4 @@ class ReportScriptsController extends AbstractContentPanelController
     {
         return "Сценарии \"Отчетности\"";
     }
+}
