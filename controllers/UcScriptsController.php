@@ -4,9 +4,9 @@ namespace devskyfly\yiiModuleIitDocs\controllers;
 use devskyfly\php56\types\Obj;
 use devskyfly\yiiModuleAdminPanel\controllers\contentPanel\AbstractContentPanelController;
 use devskyfly\yiiModuleAdminPanel\widgets\contentPanel\ItemSelector;
-use devskyfly\yiiModuleIitDocs\models\ucScript\UcScriptFilter;
 use devskyfly\yiiModuleIitDocs\models\ucScript\Section;
 use devskyfly\yiiModuleIitDocs\models\ucScript\UcScript;
+use devskyfly\yiiModuleIitDocs\models\ucScript\UcScriptFilter;
 
 class UcScriptsController extends AbstractContentPanelController
 {
