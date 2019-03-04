@@ -3,9 +3,11 @@ namespace devskyfly\yiiModuleIitDocs\controllers;
 
 use devskyfly\php56\types\Obj;
 use devskyfly\yiiModuleAdminPanel\controllers\contentPanel\AbstractContentPanelController;
+use devskyfly\yiiModuleAdminPanel\widgets\contentPanel\Binder;
 use devskyfly\yiiModuleAdminPanel\widgets\contentPanel\ItemSelector;
 use devskyfly\yiiModuleIitDocs\models\documentPackage\DocumentPackage;
 use devskyfly\yiiModuleIitDocs\models\documentPackage\DocumentPackageFilter;
+use devskyfly\yiiModuleIitDocs\models\documentPackage\DocumentPackageToDocumentBinder;
 
 class DocumentsPackagesController extends AbstractContentPanelController
 {
@@ -47,20 +49,25 @@ class DocumentsPackagesController extends AbstractContentPanelController
     {
         return function($form,$item)
         {
+            $document_package_to_document_cls=DocumentPackageToDocumentBinder::class;
             return [
                 [
                     "label"=>"main",
                     "content"=>
                     $form->field($item,'name')
-                    .ItemSelector::widget([
-                        "form"=>$form,
-                        "master_item"=>$item,
-                        "slave_item_cls"=>$item::sectionCls(),
-                        "property"=>"_section__id"
-                    ])
                     .$form->field($item,'create_date_time')
                     .$form->field($item,'change_date_time')
                     .$form->field($item,'active')->checkbox(['value'=>'Y','uncheckValue'=>'N','checked'=>$item->active=='Y'?true:false])
+                ],
+                [
+                    "label"=>"binds",
+                    "content"=>
+                    Binder::widget([
+                        "label"=>"Документы",
+                        "form"=>$form,
+                        "master_item"=>$item,
+                        "binder_cls"=>$document_package_to_document_cls
+                    ])
                 ]
             ];
         };

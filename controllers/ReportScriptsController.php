@@ -3,10 +3,12 @@ namespace devskyfly\yiiModuleIitDocs\controllers;
 
 use devskyfly\php56\types\Obj;
 use devskyfly\yiiModuleAdminPanel\controllers\contentPanel\AbstractContentPanelController;
+use devskyfly\yiiModuleAdminPanel\widgets\contentPanel\Binder;
 use devskyfly\yiiModuleAdminPanel\widgets\contentPanel\ItemSelector;
 use devskyfly\yiiModuleIitDocs\models\reportScript\ReportScript;
 use devskyfly\yiiModuleIitDocs\models\reportScript\ReportScriptFilter;
 use devskyfly\yiiModuleIitDocs\models\reportScript\Section;
+use devskyfly\yiiModuleIitDocs\models\reportScript\ReportScriptToDocumentPackageBinder;
 
 class ReportScriptsController extends AbstractContentPanelController
 {
@@ -48,6 +50,7 @@ class ReportScriptsController extends AbstractContentPanelController
     {
         return function($form,$item)
         {
+            $report_script_to_document_package_cls=ReportScriptToDocumentPackageBinder::class;
             return [
                 [
                     "label"=>"main",
@@ -62,6 +65,16 @@ class ReportScriptsController extends AbstractContentPanelController
                     .$form->field($item,'create_date_time')
                     .$form->field($item,'change_date_time')
                     .$form->field($item,'active')->checkbox(['value'=>'Y','uncheckValue'=>'N','checked'=>$item->active=='Y'?true:false])
+                ],
+                [
+                    "label"=>"binds",
+                    "content"=>
+                    Binder::widget([
+                        "label"=>"Документы",
+                        "form"=>$form,
+                        "master_item"=>$item,
+                        "binder_cls"=>$report_script_to_document_package_cls
+                    ])
                 ]
             ];
         };

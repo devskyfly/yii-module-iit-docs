@@ -33,6 +33,18 @@ class DocumentPackage extends AbstractEntity
     }
     
     /**
+     * 
+     * {@inheritDoc}
+     * @see \devskyfly\yiiModuleAdminPanel\models\contentPanel\AbstractItem::binders()
+     */
+    public function binders()
+    {
+        return [
+            'document_package_to_document_binder'=>DocumentPackageToDocumentBinder::class
+        ];
+    }
+    
+    /**
      * {@inheritdoc}
      * @see devskyfly\yiiModuleAdminPanel\models\contentPanel\AbstractItem::selectListRoute()
      * Здесь прописывается роут к списку выбора
