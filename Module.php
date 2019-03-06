@@ -15,7 +15,7 @@ class Module extends \yii\base\Module
      {
          parent::init();
          if(Yii::$app instanceof \yii\console\Application){
-             $this->controllerNamespace='devskyfly\yiiModuleIitPartners\console';
+             $this->controllerNamespace='devskyfly\yiiModuleIitDocs\console';
          }
      }
      
