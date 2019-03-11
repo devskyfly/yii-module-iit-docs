@@ -56,7 +56,7 @@ class DocumentsController extends AbstractContentPanelController
                     .ItemSelector::widget([
                         "form"=>$form,
                         "master_item"=>$item,
-                        "slave_item_cls"=>$item::sectionCls(),
+                        "slave_item_cls"=>$item::getSectionCls(),
                         "property"=>"_section__id"
                     ])
                     .$form->field($item,'create_date_time')

@@ -15,7 +15,7 @@ class Document extends AbstractEntity
      * {@inheritDoc}
      * @see \devskyfly\yiiModuleContentPanel\models\contentPanel\AbstractSection::section()
      */
-    public static function sectionCls()
+    protected static function sectionCls()
     {
         //Если иерархичность не требуется, то вместо названия класса можно передать null
         return Section::class;
