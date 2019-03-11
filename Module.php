@@ -10,7 +10,9 @@ use yii\filters\VerbFilter;
 
 class Module extends \yii\base\Module
 {
-     
+     const CSS_NAMESPACE='devskyfly-yii-iit-docs';
+     const TITLE="Модуль \"Документы\"";   
+    
      public function init()
      {
          parent::init();
