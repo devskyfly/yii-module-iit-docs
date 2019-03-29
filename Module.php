@@ -1,12 +1,8 @@
 <?php
 namespace devskyfly\yiiModuleIitDocs;
 
-use devskyfly\php56\types\Lgc;
-use devskyfly\php56\types\Str;
-use devskyfly\php56\types\Vrbl;
 use Yii;
 use yii\filters\AccessControl;
-use yii\filters\VerbFilter;
 
 class Module extends \yii\base\Module
 {
