@@ -1,13 +1,12 @@
 <?php
 namespace devskyfly\yiiModuleIitDocs\components;
 
-use devskyfly\php56\core\Cls;
-use devskyfly\php56\types\Obj;
 use devskyfly\php56\types\Vrbl;
 use devskyfly\yiiModuleAdminPanel\models\contentPanel\AbstractSection;
 use devskyfly\yiiModuleIitDocs\models\reportScript\Section as ReportSection;
 use devskyfly\yiiModuleIitDocs\models\ucScript\Section as UcSection;
 use yii\base\BaseObject;
+use yii\helpers\Url;
 
 abstract class AbstractScriptManager extends BaseObject
 {
@@ -87,7 +86,13 @@ abstract class AbstractScriptManager extends BaseObject
         $result=[];
         $childs=static::getChilds($section);
         foreach ($childs as $child){
-            $result[]=['name'=>$child->name, 'id'=>$child->id, 'children'=>static::getChildsRecursivlyInJson($child)];
+            if(static::getSectionCls()==ReportSection::class){
+                $route=Url::toRoute(['/iit-docs/report-scripts/','parent_section_id'=>$child->id]);
+            }elseif(static::getSectionCls()==UcSection::class){
+                $route=Url::toRoute(['/iit-docs/uc-scripts/','parent_section_id'=>$child->id]);
+            }
+            $route=
+            $result[]=['name'=>"<a href=\"{$route}\">{$child->name}</a>", 'id'=>$child->id, 'children'=>static::getChildsRecursivlyInJson($child)];
         }
         return $result;
     }
