@@ -17,9 +17,11 @@ $this->title=$title;
     	<?=NavigationMenu::widget(['list'=>$list])?>
     </div>
     <div class="col-xs-9">
+    	<div style="overflow:auto">
     	<?=Tabs::widget(['items'=>[
     	    ['label'=>'Uc','content'=>ScriptsViewer::widget(['mode'=>ScriptsViewer::MODE_UC])],
     	    ['label'=>'Report','content'=>ScriptsViewer::widget(['mode'=>ScriptsViewer::MODE_REPORT])]
     	]]);?>
+    	</div>
     </div>
 </div>

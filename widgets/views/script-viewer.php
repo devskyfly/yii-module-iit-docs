@@ -11,13 +11,7 @@ use devskyfly\yiiModuleIitDocs\Module;
 
 $widgetCls=Module::CSS_NAMESPACE.'__scripts_view_'.$mode;
 OrgChartAsset::register($this);
-?>
 
-<div class="<?=$widgetCls?>" style="height: 800px">
-
-</div>
-
-<?
 $orgChartData = [
     "name" => $mode,
     "children"=>$scriptsTree
@@ -28,7 +22,11 @@ $options = [
     'direction' => 'l2r'
 ];
 $json=Json::encode($options);
+?>
 
+<div class="<?=$widgetCls?>" style="height: 800px;"></div>
+
+<?
 $js_code=<<<JS_CODE
 var oc = $('.$widgetCls').orgchart($json);
 JS_CODE;
