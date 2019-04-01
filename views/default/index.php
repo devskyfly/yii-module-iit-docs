@@ -6,6 +6,7 @@ use devskyfly\yiiModuleAdminPanel\widgets\common\NavigationMenu;
 use devskyfly\yiiModuleIitUc\widgets\RatesTree;
 use devskyfly\yiiModuleIitDocs\widgets\ScriptsViewer;
 use yii\base\Widget;
+use yii\bootstrap\Tabs;
 use devskyfly\yiiModuleIitDocs\models\ucScript\Section;
 ?>
 <?
@@ -16,7 +17,9 @@ $this->title=$title;
     	<?=NavigationMenu::widget(['list'=>$list])?>
     </div>
     <div class="col-xs-9">
-    	<?//ScriptsViewer::widget(["sectionCls"=>Section::class])?>
-    	<?=ScriptsViewer::widget()?>
+    	<?=Tabs::widget(['items'=>[
+    	    ['label'=>'Uc','content'=>ScriptsViewer::widget(['mode'=>ScriptsViewer::MODE_UC])],
+    	    ['label'=>'Report','content'=>ScriptsViewer::widget(['mode'=>ScriptsViewer::MODE_REPORT])]
+    	]]);?>
     </div>
 </div>

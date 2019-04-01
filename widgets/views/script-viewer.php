@@ -1,21 +1,26 @@
 <?php
 /* $this yii\web\view */
+/* $scriptsTree [] */
+/* $mode string */
 use devskyfly\yiiModuleIitDocs\assets\OrgChartAsset;
 use yii\helpers\Json;
+use devskyfly\yiiModuleIitDocs\Module;
 ?>
 
 <?
+
+$widgetCls=Module::CSS_NAMESPACE.'__scripts_view_'.$mode;
 OrgChartAsset::register($this);
 ?>
 
-<div id="tree" class="" style="height: 800px">
+<div class="<?=$widgetCls?>" style="height: 800px">
 
 </div>
 
 <?
 $orgChartData = [
-        "name" => "Uc",
-        "children"=>$data
+    "name" => $mode,
+    "children"=>$scriptsTree
 ];
 
 $options = [
@@ -25,7 +30,7 @@ $options = [
 $json=Json::encode($options);
 
 $js_code=<<<JS_CODE
-var oc = $('#tree').orgchart($json);
+var oc = $('.$widgetCls').orgchart($json);
 JS_CODE;
 
 $js_code=str_replace(['','',''], ["\n","\r","\t"], $js_code);

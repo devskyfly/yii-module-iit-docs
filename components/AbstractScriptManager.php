@@ -91,7 +91,7 @@ abstract class AbstractScriptManager extends BaseObject
             }elseif(static::getSectionCls()==UcSection::class){
                 $route=Url::toRoute(['/iit-docs/uc-scripts/','parent_section_id'=>$child->id]);
             }
-            $route=
+
             $result[]=['name'=>"<a href=\"{$route}\">{$child->name}</a>", 'id'=>$child->id, 'children'=>static::getChildsRecursivlyInJson($child)];
         }
         return $result;
