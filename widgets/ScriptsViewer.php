@@ -39,20 +39,10 @@ class ScriptsViewer extends Widget
     protected function initTree()
     {
         if ($this->mode ==static::MODE_UC) {
-            $this->scriptsTree = [
-                'name'=>$this->mode,
-                'id'=>'',
-                'content'=>'wtf',
-                'children'=>UcScriptManager::getChildsRecursivlyForChartOrg(null)
-            ];
+            $this->scriptsTree = UcScriptManager::getChildsRecursivlyForChartOrg(null);
         }else{
-            $this->scriptsTree = 
-            [
-                'name'=>$this->mode,
-                'id'=>'',
-                'content'=>'wtf',
-                'children'=>ReportScriptManager::getChildsRecursivlyForChartOrg(null)
-            ];
+            $this->scriptsTree = ReportScriptManager::getChildsRecursivlyForChartOrg(null);
+
         }
     }
 }

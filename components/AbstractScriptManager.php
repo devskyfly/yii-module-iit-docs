@@ -9,8 +9,10 @@ use yii\base\BaseObject;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 use devskyfly\yiiModuleIitDocs\models\reportScript\ReportScriptToDocumentPackageBinder;
+use devskyfly\yiiModuleIitDocs\models\ucScript\UcScript;
 use devskyfly\yiiModuleIitDocs\models\ucScript\UcScriptToDocumentPackageBinder;
 use devskyfly\yiiModuleIitDocs\models\documentPackage\DocumentPackage;
+use devskyfly\yiiModuleIitDocs\models\reportScript\ReportScript;
 
 abstract class AbstractScriptManager extends BaseObject
 {
@@ -98,6 +100,7 @@ abstract class AbstractScriptManager extends BaseObject
     public static function getChildsRecursivlyForChartOrg(AbstractSection $section=null)
     {
         $result=[];
+        
         $childs=static::getChilds($section);
         foreach ($childs as $child){
             
@@ -107,13 +110,19 @@ abstract class AbstractScriptManager extends BaseObject
                 $route=Url::toRoute(['/iit-docs/uc-scripts/','parent_section_id'=>$child->id]);
             }
             
-            $packages=static::getSubPackages($child);
+            $packages=[];
+            $entities=$child->getEntities();            
+            foreach ($entities as $entity){
+                $packages=ArrayHelper::merge($packages,$entity->getDocumentsPackages());
+            }
+            
             
             $html_packages='<ul>';
             foreach ($packages as $package){
                 $html_packages.="<li>{$package->name}</li>";
             }
             $html_packages.='</ul>';
+            
             $result[]=[
                 'name'=>"<a href=\"{$route}\">{$child->name}</a>", 
                 'content'=>$html_packages,
@@ -121,6 +130,40 @@ abstract class AbstractScriptManager extends BaseObject
                 'children'=>static::getChildsRecursivlyForChartOrg($child)
             ];
         }
+        
+        
+        if(Vrbl::isNull($section)){
+            
+            if(static::getSectionCls()==ReportSection::class){
+                $entity=ReportScript::class;
+                $entities=$entity::find()->where(['_section__id'=>null])->all();
+                $route=Url::toRoute(['/iit-docs/report-scripts/']);
+            }elseif(static::getSectionCls()==UcSection::class){
+                $entity=UcScript::class;
+                $entities=$entity::find()->where(['_section__id'=>null])->all();
+                $route=Url::toRoute(['/iit-docs/uc-scripts/']);
+            }
+
+            $packages=[];
+
+            foreach ($entities as $entity){
+                $packages=ArrayHelper::merge($packages,$entity->getDocumentsPackages());
+            }          
+            
+            $html_packages='<ul>';
+            foreach ($packages as $package){
+                $html_packages.="<li>{$package->name}</li>";
+            }
+            $html_packages.='</ul>';
+            
+            $result=[
+                'name'=>"<a href=\"{$route}\">root</a>",
+                'content'=>$html_packages,
+                'id'=>$child->id,
+                'children'=>$result
+                ];
+        }
+        
         return $result;
     }
     
@@ -155,7 +198,7 @@ abstract class AbstractScriptManager extends BaseObject
     }
     
     /**
-     * 
+     * @deprecated
      * @param AbstractSection $model
      * @return array|\yii\helpers\UnsetArrayValue|\yii\helpers\ReplaceArrayValue|mixed
      */
