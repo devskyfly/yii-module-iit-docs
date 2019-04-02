@@ -239,6 +239,7 @@
 }
 
 .orgchart .node .content {
+  display:none;
   z-index:3;
   box-sizing: border-box;
   width: 100%;

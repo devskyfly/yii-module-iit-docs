@@ -41,6 +41,7 @@ json.createNode= function(node, data) {
         class: 'glyphicon glyphicon-list-alt icon',
         click: function() {
             //$(this).siblings('.second-menu').toggle();
+            $(node).find('.content').toggle();
         }
     });
 

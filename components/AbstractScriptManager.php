@@ -93,7 +93,7 @@ abstract class AbstractScriptManager extends BaseObject
     /**
      * 
      * @param AbstractSection $section
-     * @return string[][]|number[][]|string[][][][]|NULL[][][][]|number[][][][]
+     * @return []
      */
     public static function getChildsRecursivlyForChartOrg(AbstractSection $section=null)
     {
