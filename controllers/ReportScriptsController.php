@@ -72,7 +72,7 @@ class ReportScriptsController extends AbstractContentPanelController
                     "label"=>"binds",
                     "content"=>
                     Binder::widget([
-                        "label"=>"Документы",
+                        "label"=>"Пакеты документы",
                         "form"=>$form,
                         "master_item"=>$item,
                         "binder_cls"=>$report_script_to_document_package_cls

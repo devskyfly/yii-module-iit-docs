@@ -72,7 +72,7 @@ class UcScriptsController extends AbstractContentPanelController
                     "label"=>"binds",
                     "content"=>
                     Binder::widget([
-                        "label"=>"Документы",
+                        "label"=>"Пакеты документов",
                         "form"=>$form,
                         "master_item"=>$item,
                         "binder_cls"=>$uc_script_to_document_package_cls

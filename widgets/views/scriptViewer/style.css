@@ -1,0 +1,32 @@
+<style type="text/css">
+	.node{
+		position: relative;
+	}
+
+    .orgchart .second-menu-icon {
+      transition: opacity .5s;
+      opacity: 0;
+      left: 0px;
+      top: -20px;
+      z-index: 5;
+      font-size: 18px;
+      position: absolute;
+    }
+    .orgchart .second-menu-icon:hover { color: #449d44; }
+    .orgchart .node:hover .second-menu-icon { opacity: 1; }
+    .orgchart .node .second-menu {
+      display: none;
+      position: absolute;
+      border-radius: 35px;
+      box-shadow: 0 0 10px 1px #999;
+      background-color: #fff;
+      z-index: 5;
+    }
+    .orgchart .node .second-menu .avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 30px;
+      float: left;
+      margin: 5px;
+    }
+</style>

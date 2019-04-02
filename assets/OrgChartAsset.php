@@ -14,20 +14,20 @@ class OrgChartAsset extends AssetBundle
     public function init()
     {
         parent::init();
-        if(YII_ENV_PROD){
+        //if(YII_ENV_PROD){
             $this->js = [
                 'js/jquery.orgchart.js'
             ];
             $this->css = [
                 'css/jquery.orgchart.css'
             ];
-        }else{
+       /*  }else{
             $this->js = [
                 'js/jquery.orgchart.min.js'
             ];
             $this->css = [
                 'css/jquery.orgchart.min.css'
             ];
-        }
+        } */
     }
 }

@@ -33,15 +33,26 @@ class ScriptsViewer extends Widget
     {
         $mode=$this->mode;
         $scriptsTree = $this->scriptsTree;
-        return $this->render('script-viewer', compact("scriptsTree","mode"));
+        return $this->render('scriptViewer/template', compact("scriptsTree","mode"));
     }
 
     protected function initTree()
     {
         if ($this->mode ==static::MODE_UC) {
-            $this->scriptsTree = UcScriptManager::getChildsRecursivlyInJson(null);
+            $this->scriptsTree = [
+                'name'=>$this->mode,
+                'id'=>'',
+                'content'=>'wtf',
+                'children'=>UcScriptManager::getChildsRecursivlyForChartOrg(null)
+            ];
         }else{
-            $this->scriptsTree = ReportScriptManager::getChildsRecursivlyInJson(null);
+            $this->scriptsTree = 
+            [
+                'name'=>$this->mode,
+                'id'=>'',
+                'content'=>'wtf',
+                'children'=>ReportScriptManager::getChildsRecursivlyForChartOrg(null)
+            ];
         }
     }
 }
