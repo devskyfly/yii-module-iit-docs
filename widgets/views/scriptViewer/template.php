@@ -24,9 +24,9 @@ $options = [
 ];
 $json=Json::encode($options);
 ?>
-
+<div class="">
 <div class="<?=$widgetCls?>" style="height: 800px;"></div>
-
+</div>
 <?
 
 $js_code=<<<JS_CODE

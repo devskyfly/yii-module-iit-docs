@@ -119,7 +119,8 @@ abstract class AbstractScriptManager extends BaseObject
             
             $html_packages='<ul>';
             foreach ($packages as $package){
-                $html_packages.="<li>{$package->name}</li>";
+                $route=Url::toRoute(['/iit-docs/documents-packages/entity-edit','entity_id'=>$package['id']]);
+                $html_packages.="<li><a href='{$route}' target='_blank'>{$package->name}</a></li>";
             }
             $html_packages.='</ul>';
             
@@ -152,7 +153,8 @@ abstract class AbstractScriptManager extends BaseObject
             
             $html_packages='<ul>';
             foreach ($packages as $package){
-                $html_packages.="<li>{$package->name}</li>";
+                $route=Url::toRoute(['/iit-docs/documents-packages/entity-edit','entity_id'=>$package['id']]);
+                $html_packages.="<li><a href='{$route}' target='_blank'>{$package->name}</a></li>";
             }
             $html_packages.='</ul>';
             
