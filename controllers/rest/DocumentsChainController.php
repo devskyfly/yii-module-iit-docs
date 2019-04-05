@@ -51,6 +51,9 @@ class DocumentsChainController extends Controller
             }
             
             foreach ($chain as $chain_item){
+                if($chain_item->active!='Y'){
+                    continue;
+                }
                 $chain_entities=$chain_item->getEntities();
                 $entities=ArrayHelper::merge($entities,$chain_entities);
             }
@@ -59,6 +62,9 @@ class DocumentsChainController extends Controller
         $packages=[];
         
         foreach ($entities as $entity){
+            if($entity->active!='Y'){
+                continue;
+            }
             if($mode=='uc'){
                 $packages=ArrayHelper::merge($packages,UcScriptToDocumentPackageBinder::getSlaveItems($entity->id));
             }elseif ($mode=='report'){
@@ -70,11 +76,14 @@ class DocumentsChainController extends Controller
         $docs_ids=[];
         
         foreach($packages as $package){
+            if($package->active!='Y'){
+                continue;
+            }
             $docs_ids=ArrayHelper::merge($docs_ids,DocumentPackageToDocumentBinder::getSlaveIds($package->id));    
         }
         
         $docs=Document::find()
-        ->where(['id'=>$docs_ids])
+        ->where(['id'=>$docs_ids,'active'=>'Y'])
         ->orderBy(['SORT'=>SORT_ASC])
         ->all();
         

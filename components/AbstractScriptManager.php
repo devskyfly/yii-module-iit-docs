@@ -120,12 +120,12 @@ abstract class AbstractScriptManager extends BaseObject
             $html_packages='<ul>';
             foreach ($packages as $package){
                 $route=Url::toRoute(['/iit-docs/documents-packages/entity-edit','entity_id'=>$package['id']]);
-                $html_packages.="<li><a href='{$route}' target='_blank'>{$package->name}</a></li>";
+                $html_packages.="<li><a href='{$route}' target='_blank'>{$package->active} {$package->name}</a></li>";
             }
             $html_packages.='</ul>';
             
             $result[]=[
-                'name'=>"<a href=\"{$route}\" target='_blank' section_id=\"{$child->id}\">{$child->name}</a>", 
+                'name'=>"<a href=\"{$route}\" target='_blank' section_id=\"{$child->id}\">{$child->active} {$child->name}</a>", 
                 'content'=>$html_packages,
                 'id'=>$child->id, 
                 'children'=>static::getChildsRecursivlyForChartOrg($child)
@@ -154,7 +154,7 @@ abstract class AbstractScriptManager extends BaseObject
             $html_packages='<ul>';
             foreach ($packages as $package){
                 $route=Url::toRoute(['/iit-docs/documents-packages/entity-edit','entity_id'=>$package['id']]);
-                $html_packages.="<li><a href='{$route}' target='_blank'>{$package->name}</a></li>";
+                $html_packages.="<li><a href='{$route}' target='_blank'>{$package->active} {$package->name}</a></li>";
             }
             $html_packages.='</ul>';
             
