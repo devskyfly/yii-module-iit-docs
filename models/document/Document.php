@@ -1,6 +1,7 @@
 <?php
 namespace devskyfly\yiiModuleIitDocs\models\document;
 
+use devskyfly\php56\types\Str;
 use devskyfly\yiiModuleAdminPanel\models\contentPanel\AbstractEntity;
 
 class Document extends AbstractEntity
@@ -44,4 +45,8 @@ class Document extends AbstractEntity
         return "/iit-docs/documents/entity-select-list";
     }
 
+    public function __toString()
+    {
+        return Str::toString($this->id);
+    }
 }
