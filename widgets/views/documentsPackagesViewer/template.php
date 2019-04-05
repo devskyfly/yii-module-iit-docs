@@ -19,8 +19,8 @@ $index=0;
 	<div class="col-lg-4">
     	<ul class="list-group">
     	<?for($r_ind=0;$r_ind<$rows;$r_ind++):?>
-    		<?$index=$r_ind*$cols+$c_ind;?>
-    		<?if($index>=$nmbs)break;?>
+    		<?$index=$rows*$c_ind+$r_ind;?>
+    		<?if($index>=$nmbs) break;?>
         	<li class="list-group-item">
         		<?=$index+1?> <?=$data[$index]['package']['active']?>
         		<?if($data[$index]['documents']):?>
