@@ -63,6 +63,8 @@ class DocumentsController extends AbstractContentPanelController
                     .$form->field($item,'change_date_time')
                     .$form->field($item,'sort')
                     .$form->field($item,'active')->checkbox(['value'=>'Y','uncheck'=>'N','checked'=>$item->active=='Y'?true:false])
+                    .$form->field($item,'info_text')->textarea(['rows'=>5])
+                    
                 ]
             ];
         };
