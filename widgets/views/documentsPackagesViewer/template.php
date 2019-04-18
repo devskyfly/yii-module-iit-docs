@@ -2,6 +2,7 @@
 /* $this yii\web\View */
 /* $data */
 use yii\helpers\Url;
+use devskyfly\php56\types\Vrbl;
 
 ?>
 <?
@@ -39,7 +40,10 @@ $index=0;
                     		id="package_docs_<?=$data[$index]['package']['id']?>">
                     		<?foreach($data[$index]['documents'] as $document):?>
                     			<li class="list-group-item">
-                    				<?=$document['active']?> <?=$document['name']?>
+								<?
+								$info_text=(!Vrbl::isEmpty($document->info_text))?" #".$document->info_text."#":"";
+								?>
+                    				<?=$document['active']?> <?=$document['name']?><?=$info_text?>
                     				<a href="<?=Url::toRoute(['/iit-docs/documents/entity-edit','entity_id'=>$document['id']])?>"
                     					target="_blank">
                     				(<?=$document['id']?>)

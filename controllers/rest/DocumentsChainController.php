@@ -90,11 +90,14 @@ class DocumentsChainController extends Controller
         $html='';
         $html.="<ul class=\"list-group\">";
         $i=0;
+        
+        
         foreach ($docs as $doc)
         {
+            $info_text=(!Vrbl::isEmpty($doc->info_text))?" #".$doc->info_text."#":"";
             $i++;
             $i_tag=Html::tag('span',$i.". ",["class"=>""]);
-            $html.=Html::tag('li',$i_tag.$doc->name,["class"=>"list-group-item"]);
+            $html.=Html::tag('li',$i_tag.$doc->name.$info_text,["class"=>"list-group-item"]);
         }
         $html.="</ul>";
         return $html;

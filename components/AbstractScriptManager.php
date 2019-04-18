@@ -125,7 +125,7 @@ abstract class AbstractScriptManager extends BaseObject
             $html_packages.='</ul>';
             
             $result[]=[
-                'name'=>"<a href=\"{$route}\" target='_blank' section_id=\"{$child->id}\">{$child->active} {$child->name}</a>", 
+                'name'=>"<a href=\"{$route}\" target='_blank' section_id=\"{$child->id}\">{$child->active} {$child->name} </a>", 
                 'content'=>$html_packages,
                 'id'=>$child->id, 
                 'children'=>static::getChildsRecursivlyForChartOrg($child)
