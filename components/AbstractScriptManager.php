@@ -119,8 +119,8 @@ abstract class AbstractScriptManager extends BaseObject
             
             $html_packages='<ul>';
             foreach ($packages as $package){
-                $route=Url::toRoute(['/iit-docs/documents-packages/entity-edit','entity_id'=>$package['id']]);
-                $html_packages.="<li><a href='{$route}' target='_blank'>{$package->active} {$package->name}</a></li>";
+                $package_route=Url::toRoute(['/iit-docs/documents-packages/entity-edit','entity_id'=>$package['id']]);
+                $html_packages.="<li><a href='{$package_route}' target='_blank'>{$package->active} {$package->name}</a></li>";
             }
             $html_packages.='</ul>';
             
