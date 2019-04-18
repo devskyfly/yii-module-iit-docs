@@ -133,7 +133,7 @@ abstract class AbstractScriptManager extends BaseObject
         }
         
         
-        if(Vrbl::isNull($section)){
+        if(Vrbl::isNull($section)&&(isset($child))){
             
             if(static::getSectionCls()==ReportSection::class){
                 $entity=ReportScript::class;
