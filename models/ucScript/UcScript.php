@@ -60,6 +60,13 @@ class UcScript extends AbstractEntity
         //Если расширений нет, то можно вернуть пустой массив
         return [];
     }
+
+    public function binders()
+    {
+        return [
+            'UcScriptToDocumentPackageBinder'=>UcScriptToDocumentPackageBinder::class
+        ];
+    }
     
     /**
      * {@inheritdoc}

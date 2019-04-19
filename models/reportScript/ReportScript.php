@@ -59,6 +59,13 @@ class ReportScript extends AbstractEntity
         //Если расширений нет, то можно вернуть пустой массив
         return [];
     }
+
+    public function binders()
+    {
+        return [
+            'ReportScriptToDocumentPackageBinder'=>ReportScriptToDocumentPackageBinder::class
+        ];
+    }
     
     /**
      * {@inheritdoc}
