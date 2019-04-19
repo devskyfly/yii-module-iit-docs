@@ -75,6 +75,6 @@ class UcScript extends AbstractEntity
      */
     public static function selectListRoute()
     {
-        return "/iit-docs/uc-script/entity-select-list";
+        return "/iit-docs/uc-scripts/entity-select-list";
     }
 }

@@ -74,7 +74,7 @@ class ReportScript extends AbstractEntity
      */
     public static function selectListRoute()
     {
-        return "/iit-docs/report-script/entity-select-list";
+        return "/iit-docs/report-scripts/entity-select-list";
     }
     
 }

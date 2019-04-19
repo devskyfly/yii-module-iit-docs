@@ -34,7 +34,7 @@ class Section extends AbstractSection
      */
     public static function selectListRoute()
     {
-        return "/iit-docs/uc-script/section-select-list";
+        return "/iit-docs/uc-scripts/section-select-list";
     }
 }
 ?>
