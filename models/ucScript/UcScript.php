@@ -7,6 +7,17 @@ use yii\helpers\ArrayHelper;
 
 class UcScript extends AbstractEntity
 {
+
+    public function rules()
+    {
+        $rules=parent::rules();
+        $newRules=[
+            [['item_name'],"string"]
+        ];
+        $rules=ArrayHelper::merge($rules,$newRules);
+        return $rules;
+    }
+    
     /**
      *
      * @return array
