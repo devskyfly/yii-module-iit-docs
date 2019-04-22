@@ -3,9 +3,18 @@ namespace devskyfly\yiiModuleIitDocs\models\document;
 
 use devskyfly\php56\types\Str;
 use devskyfly\yiiModuleAdminPanel\models\contentPanel\AbstractEntity;
+use yii\helpers\ArrayHelper;
 
 class Document extends AbstractEntity
 {
+    public function rules()
+    {
+        $rules=parent::rules();
+        $new_rules=[['item_info'],'string'];
+        $rules=ArrayHelper::merge($rules,$new_rules);
+        return $rules;
+    }
+    
     public static function tableName()
     {
         return "iit_docs_document";
