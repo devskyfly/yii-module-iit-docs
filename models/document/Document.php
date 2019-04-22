@@ -10,7 +10,7 @@ class Document extends AbstractEntity
     public function rules()
     {
         $rules=parent::rules();
-        $new_rules=[['item_info'],'string'];
+        $new_rules=[[['info_text'],'string']];
         $rules=ArrayHelper::merge($rules,$new_rules);
         return $rules;
     }
