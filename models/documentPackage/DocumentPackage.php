@@ -2,9 +2,12 @@
 namespace devskyfly\yiiModuleIitDocs\models\documentPackage;
 
 use devskyfly\yiiModuleAdminPanel\models\contentPanel\AbstractEntity;
+use devskyfly\yiiModuleIitDocs\traits\DbTrait;
 
 class DocumentPackage extends AbstractEntity
 {
+    use DbTrait;
+    
     public static function tableName()
     {
         return "iit_docs_document_package";

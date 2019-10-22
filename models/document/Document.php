@@ -3,10 +3,13 @@ namespace devskyfly\yiiModuleIitDocs\models\document;
 
 use devskyfly\php56\types\Str;
 use devskyfly\yiiModuleAdminPanel\models\contentPanel\AbstractEntity;
+use devskyfly\yiiModuleIitDocs\traits\DbTrait;
 use yii\helpers\ArrayHelper;
 
 class Document extends AbstractEntity
 {
+    use DbTrait;
+    
     public function rules()
     {
         $rules=parent::rules();

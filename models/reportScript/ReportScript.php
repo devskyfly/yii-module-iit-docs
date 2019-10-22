@@ -3,10 +3,13 @@ namespace devskyfly\yiiModuleIitDocs\models\reportScript;
 
 use devskyfly\yiiModuleAdminPanel\models\contentPanel\AbstractEntity;
 use devskyfly\yiiModuleIitDocs\models\documentPackage\DocumentPackage;
+use devskyfly\yiiModuleIitDocs\traits\DbTrait;
 use yii\helpers\ArrayHelper;
 
 class ReportScript extends AbstractEntity
 {
+    use DbTrait;
+    
     public function rules()
     {
         $rules=parent::rules();

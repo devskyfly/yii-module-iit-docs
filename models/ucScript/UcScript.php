@@ -3,11 +3,13 @@ namespace devskyfly\yiiModuleIitDocs\models\ucScript;
 
 use devskyfly\yiiModuleAdminPanel\models\contentPanel\AbstractEntity;
 use devskyfly\yiiModuleIitDocs\models\documentPackage\DocumentPackage;
+use devskyfly\yiiModuleIitDocs\traits\DbTrait;
 use yii\helpers\ArrayHelper;
 
 class UcScript extends AbstractEntity
 {
-
+    use DbTrait;
+    
     public function rules()
     {
         $rules=parent::rules();
