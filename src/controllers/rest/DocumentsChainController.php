@@ -16,6 +16,7 @@ use yii\helpers\Html;
 use devskyfly\yiiModuleIitDocs\models\ucScript\UcScriptToDocumentPackageBinder;
 use devskyfly\yiiModuleIitDocs\models\document\Document;
 use devskyfly\yiiModuleIitDocs\models\documentPackage\DocumentPackageToDocumentBinder;
+use devskyfly\yiiModuleIitDocs\models\reportScript\ReportScriptToDocumentPackageBinder;
 
 class DocumentsChainController extends Controller
 {
@@ -68,7 +69,7 @@ class DocumentsChainController extends Controller
             if($mode=='uc'){
                 $packages=ArrayHelper::merge($packages,UcScriptToDocumentPackageBinder::getSlaveItems($entity->id));
             }elseif ($mode=='report'){
-                $packages=ArrayHelper::merge($packages,UcScriptToDocumentPackageBinder::getSlaveItems($entity->id));
+                $packages=ArrayHelper::merge($packages,ReportScriptToDocumentPackageBinder::getSlaveItems($entity->id));
             }
         }
         
